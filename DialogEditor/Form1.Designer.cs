@@ -136,6 +136,10 @@ namespace DialogEditor
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.d_t_nextbranch = new System.Windows.Forms.TextBox();
+            this.d_t_nextid = new System.Windows.Forms.TextBox();
+            this.d_t_nexttrunk = new System.Windows.Forms.TextBox();
+            this.d_t_exitcheck = new System.Windows.Forms.CheckBox();
             tabControl1 = new System.Windows.Forms.TabControl();
             tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -166,7 +170,11 @@ namespace DialogEditor
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.d_t_exitcheck);
+            this.tabPage1.Controls.Add(this.d_t_nextbranch);
+            this.tabPage1.Controls.Add(this.d_t_nextid);
             this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.d_t_nexttrunk);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.d_t_sbox);
             this.tabPage1.Controls.Add(this.label3);
@@ -1125,28 +1133,28 @@ namespace DialogEditor
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "exit";
             // 
             // helpToolStripMenuItem
@@ -1196,6 +1204,41 @@ namespace DialogEditor
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             this.fileSystemWatcher1.Changed += new System.IO.FileSystemEventHandler(this.fileSystemWatcher1_Changed);
+            // 
+            // d_t_nextbranch
+            // 
+            this.d_t_nextbranch.Location = new System.Drawing.Point(148, 193);
+            this.d_t_nextbranch.Name = "d_t_nextbranch";
+            this.d_t_nextbranch.Size = new System.Drawing.Size(73, 20);
+            this.d_t_nextbranch.TabIndex = 12;
+            this.d_t_nextbranch.TextChanged += new System.EventHandler(this.d_t_nextbranch_TextChanged);
+            // 
+            // d_t_nextid
+            // 
+            this.d_t_nextid.Location = new System.Drawing.Point(104, 193);
+            this.d_t_nextid.Name = "d_t_nextid";
+            this.d_t_nextid.Size = new System.Drawing.Size(38, 20);
+            this.d_t_nextid.TabIndex = 11;
+            this.d_t_nextid.TextChanged += new System.EventHandler(this.d_t_nextid_TextChanged);
+            // 
+            // d_t_nexttrunk
+            // 
+            this.d_t_nexttrunk.Location = new System.Drawing.Point(7, 193);
+            this.d_t_nexttrunk.Name = "d_t_nexttrunk";
+            this.d_t_nexttrunk.Size = new System.Drawing.Size(91, 20);
+            this.d_t_nexttrunk.TabIndex = 10;
+            this.d_t_nexttrunk.TextChanged += new System.EventHandler(this.d_t_nexttrunk_TextChanged);
+            // 
+            // d_t_exitcheck
+            // 
+            this.d_t_exitcheck.AutoSize = true;
+            this.d_t_exitcheck.Location = new System.Drawing.Point(7, 220);
+            this.d_t_exitcheck.Name = "d_t_exitcheck";
+            this.d_t_exitcheck.Size = new System.Drawing.Size(76, 17);
+            this.d_t_exitcheck.TabIndex = 13;
+            this.d_t_exitcheck.Text = "Exit Dialog";
+            this.d_t_exitcheck.UseVisualStyleBackColor = true;
+            this.d_t_exitcheck.CheckedChanged += new System.EventHandler(this.d_t_exitcheck_CheckedChanged);
             // 
             // Form1
             // 
@@ -1340,6 +1383,10 @@ namespace DialogEditor
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox c_t_oquit;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.CheckBox d_t_exitcheck;
+        private System.Windows.Forms.TextBox d_t_nextbranch;
+        private System.Windows.Forms.TextBox d_t_nextid;
+        private System.Windows.Forms.TextBox d_t_nexttrunk;
     }
 }
 

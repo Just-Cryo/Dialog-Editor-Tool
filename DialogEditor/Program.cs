@@ -131,6 +131,14 @@ namespace DialogEditor
             this.tag.branch = _b;
             this.tag.id = _i;
             defaultOptions.speed = 100;
+            conditionals.Add(new conditionalObject());
+            conditionals[0].defaultTag.branch = this.tag.branch;
+            conditionals[0].defaultTag.trunk = this.tag.trunk;
+            conditionals[0].defaultTag.id = this.tag.id+1;
+            conditionals[0].conditional.Domain = "Global";
+            conditionals[0].conditional.Variable = "True";
+            conditionals[0].conditional.comparator = "=";
+            conditionals[0].conditional.value = 1;
         }
         public bool display(ref TreeView tree)
         {

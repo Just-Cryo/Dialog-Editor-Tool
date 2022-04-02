@@ -372,6 +372,10 @@ namespace DialogEditor
             d_t_nbox.Text = en.defaultText.nameid;
             d_t_dbox.Text = en.defaultText.text;
             d_t_sbox.Text = en.defaultOptions.speed.ToString();
+            d_t_exitcheck.Checked = en.conditionals[0].defaultExit;
+            d_t_nexttrunk.Text = en.conditionals[0].defaultTag.trunk;
+            d_t_nextid.Text = en.conditionals[0].defaultTag.id.ToString();
+            d_t_nextbranch.Text = en.conditionals[0].defaultTag.branch;
         }
 
         private void d_t_dbox_TextChanged(object sender, EventArgs e) //dialog box
@@ -408,6 +412,52 @@ namespace DialogEditor
                 d_t_sbox.BackColor = Color.FromArgb(255, 150, 150);
 
         }
+
+
+
+        private void d_t_nexttrunk_TextChanged(object sender, EventArgs e)
+        {
+
+            en.conditionals[0].defaultTag.trunk = d_t_nexttrunk.Text;
+            if (c_t_cselect.SelectedIndex == 0)
+                c_t_dtrunk.Text = d_t_nexttrunk.Text;
+            updateEntryTree();
+        }
+
+        private void d_t_nextid_TextChanged(object sender, EventArgs e)
+        {
+            int tv = 0;
+            if (Int32.TryParse(d_t_nextid.Text,out tv))
+            {
+
+                en.conditionals[0].defaultTag.id = tv;
+                if (c_t_cselect.SelectedIndex == 0)
+                    c_t_did.Text = d_t_nextid.Text;
+                updateEntryTree();
+            }
+        }
+
+        private void d_t_nextbranch_TextChanged(object sender, EventArgs e)
+        {
+
+            en.conditionals[0].defaultTag.branch = d_t_nextbranch.Text;
+            if (c_t_cselect.SelectedIndex == 0)
+                c_t_dbranch.Text = d_t_nextbranch.Text;
+            updateEntryTree();
+        }
+
+        private void d_t_exitcheck_CheckedChanged(object sender, EventArgs e)
+        {
+
+            en.conditionals[0].defaultExit = d_t_exitcheck.Checked;
+            if (c_t_cselect.SelectedIndex == 0)
+                c_t_dquit.Checked = d_t_exitcheck.Checked;
+            updateEntryTree();
+        }
+
+
+
+
 
         /////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////
@@ -581,6 +631,11 @@ namespace DialogEditor
             c_t_jid.Text = en.conditionals[indx].jumpTarget.id.ToString();
             c_t_jbranch.Text= en.conditionals[indx].jumpTarget.branch;
 
+            c_t_dquit.Checked = en.conditionals[indx].defaultExit;
+            c_t_dtrunk.Text = en.conditionals[indx].defaultTag.trunk;
+            c_t_did.Text = en.conditionals[indx].defaultTag.id.ToString();
+            c_t_dbranch.Text = en.conditionals[indx].defaultTag.branch;
+
 
             if (!en.conditionals[indx].jump)
             {
@@ -599,11 +654,6 @@ namespace DialogEditor
             }
 
 
-            c_t_dquit.Checked = en.conditionals[indx].defaultExit;
-
-            c_t_dtrunk.Text = en.conditionals[indx].defaultTag.trunk;
-            c_t_did.Text = en.conditionals[indx].defaultTag.id.ToString();
-            c_t_dbranch.Text = en.conditionals[indx].defaultTag.branch;
         }
 
         private void c_t_cnew_Click(object sender, EventArgs e)
@@ -789,9 +839,12 @@ namespace DialogEditor
         {
             int indx = c_t_cselect.SelectedIndex;
             int indx2 = c_t_oselect.SelectedIndex;
-            en.conditionals[indx].options.RemoveAt(indx2);
-            c_t_oselect.Items.RemoveAt(indx2);
-            updateEntryTree();
+            if (indx >= 0 && indx2 >= 0)
+            {
+                en.conditionals[indx].options.RemoveAt(indx2);
+                c_t_oselect.Items.RemoveAt(indx2);
+                updateEntryTree();
+            }
             //updateConditionalsTab();
         }
 
@@ -799,7 +852,7 @@ namespace DialogEditor
         {
             int indx = c_t_cselect.SelectedIndex;
             int indx2 = c_t_oselect.SelectedIndex;
-            if (indx2 != -1)
+            if (indx2 != -1 && indx >= 0)
             {
                 en.conditionals[indx].options[indx2].exitDialog = c_t_oquit.Checked;
                 updateEntryTree();
@@ -810,7 +863,7 @@ namespace DialogEditor
         {
             int indx = c_t_cselect.SelectedIndex;
             int indx2 = c_t_oselect.SelectedIndex;
-            if (indx2 != -1)
+            if (indx2 != -1&& indx >= 0)
             {
                 en.conditionals[indx].options[indx2].tag.trunk = c_t_otrunk.Text;
                 c_t_oselect.Items[indx2] = en.conditionals[indx].options[indx2].tag.name();
@@ -822,7 +875,7 @@ namespace DialogEditor
         {
             int indx = c_t_cselect.SelectedIndex;
             int indx2 = c_t_oselect.SelectedIndex;
-            if (indx2 != -1)
+            if (indx2 != -1&& indx >= 0)
             {
                 int ti = 0;
                 if (Int32.TryParse(c_t_oid.Text, out ti))
@@ -844,7 +897,7 @@ namespace DialogEditor
         {
             int indx = c_t_cselect.SelectedIndex;
             int indx2 = c_t_oselect.SelectedIndex;
-            if (indx2 != -1)
+            if (indx2 != -1&& indx >= 0)
             {
                 en.conditionals[indx].options[indx2].tag.branch = c_t_obranch.Text;
                 c_t_oselect.Items[indx2] = en.conditionals[indx].options[indx2].tag.name();
@@ -856,7 +909,7 @@ namespace DialogEditor
         {
             int indx = c_t_cselect.SelectedIndex;
             int indx2 = c_t_oselect.SelectedIndex;
-            if (indx2 != -1)
+            if (indx2 != -1&& indx >=0)
             {
                 en.conditionals[indx].options[indx2].optionDialog = c_t_odiag.Text;
                 updateEntryTree();
@@ -865,11 +918,12 @@ namespace DialogEditor
 
         private void c_t_dquit_CheckedChanged(object sender, EventArgs e)
         {
-            int indx = c_t_cselect.SelectedIndex;
-            int indx2 = c_t_oselect.SelectedIndex;
-            if (indx2 != -1)
+            int indx = c_t_cselect.SelectedIndex; 
+            if (indx >=0)
             {
                 en.conditionals[indx].defaultExit = c_t_dquit.Checked;
+                if (c_t_cselect.SelectedIndex == 0)
+                    updateDefaultTab();
                 updateEntryTree();
             }
         }
@@ -878,32 +932,60 @@ namespace DialogEditor
         {
 
             int indx = c_t_cselect.SelectedIndex;
-            en.conditionals[indx].defaultTag.trunk = c_t_dtrunk.Text;
-            updateEntryTree();
+            if (indx >= 0)
+            {
+                en.conditionals[indx].defaultTag.trunk = c_t_dtrunk.Text;
+                if (c_t_cselect.SelectedIndex == 0)
+                    updateDefaultTab();
+                updateEntryTree();
+            }
+            else
+            {
+                c_t_dtrunk.Text = "";
+            }
         }
 
         private void c_t_did_TextChanged(object sender, EventArgs e)
         {
             int indx = c_t_cselect.SelectedIndex;
-            int ti = 0;
-            if (Int32.TryParse(c_t_did.Text, out ti))
+            if (indx >= 0)
             {
-                en.conditionals[indx].defaultTag.id = ti;
-                updateEntryTree();
-                c_t_did.BackColor = Color.FromArgb(255, 255, 255);
+                int ti = 0;
+                if (Int32.TryParse(c_t_did.Text, out ti))
+                {
+                    en.conditionals[indx].defaultTag.id = ti;
+                    updateEntryTree();
+                    if (c_t_cselect.SelectedIndex == 0)
+                        updateDefaultTab();
+                    c_t_did.BackColor = Color.FromArgb(255, 255, 255);
 
+                }
+                else
+                {
+                    c_t_did.BackColor = Color.FromArgb(255, 150, 150);
+                }
             }
             else
             {
-                c_t_did.BackColor = Color.FromArgb(255, 150, 150);
+                c_t_did.Text = "";
+
             }
         }
 
         private void c_t_dbranch_TextChanged(object sender, EventArgs e)
         {
             int indx = c_t_cselect.SelectedIndex;
-            en.conditionals[indx].defaultTag.branch = c_t_dbranch.Text;
-            updateEntryTree();
+            if (indx >= 0)
+            {
+                en.conditionals[indx].defaultTag.branch = c_t_dbranch.Text;
+                if (c_t_cselect.SelectedIndex == 0)
+                    updateDefaultTab();
+                updateEntryTree();
+            }
+            else
+            {
+                c_t_dbranch.Text = "";
+            }
         }
 
 
@@ -1057,8 +1139,6 @@ namespace DialogEditor
                 {
                     v_t_select.Items.Add(v.character + "." + v.voiceline);
                 }
-
-                v_t_select.SelectedIndex = 0;
             }
         }
 
@@ -1229,5 +1309,7 @@ namespace DialogEditor
         {
 
         }
+
+
     }
 }
