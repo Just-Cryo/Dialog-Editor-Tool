@@ -5,7 +5,7 @@ Output is a text file that contains all of the data for the dialog tree visible 
 File reads as follows:
 The first character in each line specifies what kind of line it is for
 Every parameter in each line is separated by a : - no leading or trailing, and the identifier is not separated by one
-
+```
 Identifiers:
 ! - new dialog entry
         trunk:id:branch
@@ -33,7 +33,7 @@ $ - character portrait
 * these 2 options (&,=) can have a * after the identifier to indicate dialog is supposed to end, the entry is to be recorded for the next interaction.
 
 ** these 3 options, when specifying the dialog tag, can omit the trunk if it is identical to the current entry, omit the id if it is the current id + 1, and omit the branch if it is identical
-
+```
 Example dialog file:
 [TestDialog.txt](https://github.com/Just-Cryo/Dialog-Editor-Tool/files/8403355/TestDialog.txt)
 
