@@ -1,0 +1,10 @@
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\bin\Release\DialogEditor.exe.config
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\bin\Release\DialogEditor.exe
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\bin\Release\DialogEditor.pdb
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Release\DialogEditor.csprojAssemblyReference.cache
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Release\DialogEditor.Form1.resources
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Release\DialogEditor.Properties.Resources.resources
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Release\DialogEditor.csproj.GenerateResource.cache
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Release\DialogEditor.csproj.CoreCompileInputs.cache
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Release\DialogEditor.exe
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Release\DialogEditor.pdb

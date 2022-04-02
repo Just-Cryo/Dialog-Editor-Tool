@@ -1,0 +1,30 @@
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\bin\Debug\DialogEditor.exe.config
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\bin\Debug\DialogEditor.exe
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\bin\Debug\DialogEditor.pdb
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csproj.AssemblyReference.cache
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\obj\Debug\DialogEditor.Properties.Resources.resources
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csproj.GenerateResource.cache
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csproj.CoreCompileInputs.cache
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\obj\Debug\DialogEditor.exe
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\obj\Debug\DialogEditor.pdb
+C:\Users\Tech User\source\repos\DialogEditor\DialogEditor\obj\Debug\DialogEditor.Form1.resources
+H:\DialogEditor\DialogEditor\bin\Debug\DialogEditor.exe.config
+H:\DialogEditor\DialogEditor\bin\Debug\DialogEditor.exe
+H:\DialogEditor\DialogEditor\bin\Debug\DialogEditor.pdb
+H:\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csprojAssemblyReference.cache
+H:\DialogEditor\DialogEditor\obj\Debug\DialogEditor.Form1.resources
+H:\DialogEditor\DialogEditor\obj\Debug\DialogEditor.Properties.Resources.resources
+H:\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csproj.GenerateResource.cache
+H:\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csproj.CoreCompileInputs.cache
+H:\DialogEditor\DialogEditor\obj\Debug\DialogEditor.exe
+H:\DialogEditor\DialogEditor\obj\Debug\DialogEditor.pdb
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\bin\Debug\DialogEditor.exe.config
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\bin\Debug\DialogEditor.exe
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\bin\Debug\DialogEditor.pdb
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csprojAssemblyReference.cache
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Debug\DialogEditor.Form1.resources
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Debug\DialogEditor.Properties.Resources.resources
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csproj.GenerateResource.cache
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Debug\DialogEditor.csproj.CoreCompileInputs.cache
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Debug\DialogEditor.exe
+C:\Users\Cryo\OneDrive\Desktop\DialogEditor\DialogEditor\obj\Debug\DialogEditor.pdb
