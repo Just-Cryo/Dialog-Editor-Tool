@@ -125,20 +125,23 @@ namespace DialogEditor
         public defaultScript defaultText = new defaultScript();
         public List<conditionalObject> conditionals = new List<conditionalObject>();
         public dialogOptions defaultOptions = new dialogOptions();
-        public dialogEntry(string _t = "default", int _i = 0, string _b = "")
+        public dialogEntry(string _t = "default", int _i = 0, string _b = "",bool empty = true)
         {
             this.tag.trunk = _t;
             this.tag.branch = _b;
             this.tag.id = _i;
             defaultOptions.speed = 100;
-            conditionals.Add(new conditionalObject());
-            conditionals[0].defaultTag.branch = this.tag.branch;
-            conditionals[0].defaultTag.trunk = this.tag.trunk;
-            conditionals[0].defaultTag.id = this.tag.id+1;
-            conditionals[0].conditional.Domain = "Global";
-            conditionals[0].conditional.Variable = "True";
-            conditionals[0].conditional.comparator = "=";
-            conditionals[0].conditional.value = 1;
+            if (!empty)
+            {
+                conditionals.Add(new conditionalObject());
+                conditionals[0].defaultTag.branch = this.tag.branch;
+                conditionals[0].defaultTag.trunk = this.tag.trunk;
+                conditionals[0].defaultTag.id = this.tag.id + 1;
+                conditionals[0].conditional.Domain = "Global";
+                conditionals[0].conditional.Variable = "True";
+                conditionals[0].conditional.comparator = "=";
+                conditionals[0].conditional.value = 1;
+            }
         }
         public bool display(ref TreeView tree)
         {
@@ -465,7 +468,7 @@ namespace DialogEditor
                             output.Write(trunks[t].branches[b].entries[e].portraits[i].character + ":");
                             output.Write(trunks[t].branches[b].entries[e].portraits[i].pose + ":");
                             output.Write(trunks[t].branches[b].entries[e].portraits[i].side + ":");
-                            output.Write(trunks[t].branches[b].entries[e].portraits[i].offset.ToString() + "\n");
+                            output.Write(trunks[t].branches[b].entries[e].portraits[i].offset.ToString() + "\r\n");
                         }
                         for (int i = 0; i < trunks[t].branches[b].entries[e].voicelines.Count; ++i)
                         {
@@ -473,7 +476,7 @@ namespace DialogEditor
                             output.Write("#");
                             output.Write(trunks[t].branches[b].entries[e].voicelines[i].character + ":");
                             output.Write(trunks[t].branches[b].entries[e].voicelines[i].voiceline + ":");
-                            output.Write(trunks[t].branches[b].entries[e].voicelines[i].volume.ToString() + "\n");
+                            output.Write(trunks[t].branches[b].entries[e].voicelines[i].volume.ToString() + "\r\n");
                         }
                         for (int i = 0; i < trunks[t].branches[b].entries[e].scripts.Count; ++i)
                         {
@@ -483,7 +486,7 @@ namespace DialogEditor
                             output.Write(trunks[t].branches[b].entries[e].scripts[i].script + ":");
                             foreach(float a in trunks[t].branches[b].entries[e].scripts[i].values)
                                 output.Write(a.ToString() + ":");
-                            output.Write("\n");
+                            output.Write("\r\n");
                         }
 
                         output.WriteLine(
@@ -500,7 +503,7 @@ namespace DialogEditor
                             output.Write(trunks[t].branches[b].entries[e].conditionals[i].conditional.Domain + ":");
                             output.Write(trunks[t].branches[b].entries[e].conditionals[i].conditional.Variable + ":");
                             output.Write(trunks[t].branches[b].entries[e].conditionals[i].conditional.comparator + ":");
-                            output.Write(trunks[t].branches[b].entries[e].conditionals[i].conditional.value.ToString() + "\n");
+                            output.Write(trunks[t].branches[b].entries[e].conditionals[i].conditional.value.ToString() + "\r\n");
 
                             if (trunks[t].branches[b].entries[e].conditionals[i].options.Count > 0)
                             {
@@ -519,7 +522,7 @@ namespace DialogEditor
                                     if (trunks[t].branches[b].entries[e].conditionals[i].options[l].tag.branch != b)
                                         output.Write(trunks[t].branches[b].entries[e].conditionals[i].options[l].tag.branch);
                                     output.Write(":");
-                                    output.Write(trunks[t].branches[b].entries[e].conditionals[i].options[l].optionDialog+"\n");
+                                    output.Write(trunks[t].branches[b].entries[e].conditionals[i].options[l].optionDialog+ "\r\n");
                                 }
                             }
                             else
@@ -537,7 +540,7 @@ namespace DialogEditor
                                     output.Write(":");
                                     if (trunks[t].branches[b].entries[e].conditionals[i].defaultTag.branch != b)
                                         output.Write(trunks[t].branches[b].entries[e].conditionals[i].defaultTag.branch);
-                                    output.Write("\n");
+                                    output.Write("\r\n");
                                 }
                                 else
                                 {
@@ -550,7 +553,7 @@ namespace DialogEditor
                                     output.Write(":");
                                     if (trunks[t].branches[b].entries[e].conditionals[i].jumpTarget.branch != b)
                                         output.Write(trunks[t].branches[b].entries[e].conditionals[i].jumpTarget.branch);
-                                    output.Write("\n");
+                                    output.Write("\r\n");
                                 }
                             }
                         }

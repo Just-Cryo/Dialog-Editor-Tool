@@ -236,7 +236,7 @@ namespace DialogEditor
 
 
                 dialogEntry entry;
-                dialogEntry newentry = new dialogEntry(curtrunk, curid, curbranch);
+                dialogEntry newentry = new dialogEntry(curtrunk, curid, curbranch,false);
                 if (!mainTree.trunks[curtrunk].branches[curbranch].entries.TryGetValue(newentry.tag.name(), out entry))
                 {
                     mainTree.trunks[curtrunk].branches[curbranch].entries.Add(newentry.tag.name(), newentry);
@@ -336,7 +336,8 @@ namespace DialogEditor
                     tn = tn.Nodes.Add(en.tag.trunk + (en.tag.id + offset).ToString() + en.tag.branch);
                     tn.Name = tn.Text;
                     mainTree.trunks[en.tag.trunk].branches[en.tag.branch].entries.Add(
-                        en.tag.trunk + (en.tag.id + offset).ToString() + en.tag.branch, new dialogEntry(en.tag.trunk ,(en.tag.id + offset),en.tag.branch));
+                        en.tag.trunk + (en.tag.id + offset).ToString() + en.tag.branch, 
+                        new dialogEntry(en.tag.trunk ,(en.tag.id + offset),en.tag.branch,false));
                     treeView1.SelectedNode = tn;
                 }
             }
