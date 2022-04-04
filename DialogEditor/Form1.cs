@@ -395,7 +395,7 @@ namespace DialogEditor
 
         private void d_t_nbox_TextChanged(object sender, EventArgs e) //name id box
         {
-            en.defaultText.nameid = d_t_cbox.Text;
+            en.defaultText.nameid = d_t_nbox.Text;
             updateEntryTree();
 
         }
@@ -493,13 +493,12 @@ namespace DialogEditor
             s_t_dselect.SelectedIndex = selindx;
 
             s_t_sbox.Text = en.scripts[indx].script;
-            s_t_argbox.Text = "";
             string temp_t = "";
-            foreach (float val in en.scripts[indx].values)
+            foreach (string val in en.scripts[indx].values)
             {
-                temp_t += val.ToString()+",";
+                temp_t += val+",";
             }
-            s_t_argbox.Text = temp_t.TrimEnd(',');
+            s_t_argbox.Text = temp_t.Remove(temp_t.Length-1,1);
         }
 
         private void s_t_new_Click(object sender, EventArgs e)
@@ -548,22 +547,12 @@ namespace DialogEditor
         {
             int indx = s_t_scriptSelect.SelectedIndex;
             string[] args = s_t_argbox.Text.Split(',');
-            s_t_argbox.BackColor = Color.FromArgb(255, 255, 255);
             for (int i =0; i < args.Length;++i)
             {
-                float tf = 0;
-                if (float.TryParse(args[i],out tf))
-                {
-                    if (en.scripts[indx].values.Count > i)
-                        en.scripts[indx].values[i] = tf;
+                    if (en.scripts[indx].values.Count>=i)
+                        en.scripts[indx].values[i] = args[i];
                     else
-                        en.scripts[indx].values.Add(tf);
-                }
-                else
-                {
-                    s_t_argbox.BackColor = Color.FromArgb(255, 150, 150);
-
-                }
+                        en.scripts[indx].values.Add(args[i]);
             }
             updateEntryTree();
 

@@ -41,12 +41,12 @@ namespace DialogEditor
     {
         public string domain;
         public string script;
-        public List<float> values = new List<float>();
+        public List<string> values = new List<string>();
         public scriptObject(string _d = "Global",string _s = "")
         {
             domain = _d;
             script = _s;
-            values = new List<float>();
+            values = new List<string>();
         }
     }
     public class portraitObject
@@ -278,9 +278,7 @@ namespace DialogEditor
                             scriptObject sO = trunks[curtag.trunk].branches[curtag.branch].entries[curtag.name()].scripts.Last();
                             for(int i =2; i < arg.Length; ++i)
                             {
-                                float tval = 0;
-                                if (float.TryParse(arg[i],out tval))
-                                sO.values.Add(tval);
+                                sO.values.Add(arg[i]);
                             }
                             break;
                         }
@@ -484,8 +482,8 @@ namespace DialogEditor
                             output.Write("%");
                             output.Write(trunks[t].branches[b].entries[e].scripts[i].domain + ":");
                             output.Write(trunks[t].branches[b].entries[e].scripts[i].script + ":");
-                            foreach(float a in trunks[t].branches[b].entries[e].scripts[i].values)
-                                output.Write(a.ToString() + ":");
+                            foreach(string a in trunks[t].branches[b].entries[e].scripts[i].values)
+                                output.Write(a + ":");
                             output.Write("\r\n");
                         }
 
